@@ -1,0 +1,18 @@
+{% extends "home_app/main.html" %}
+<title>Register User</title>
+
+{% block mymain %}
+<div style="z-index:1000; color:white">
+{% if form.errors %}
+<p>There is an error in form</p>
+{% endif %}
+<div class="register-container">
+    <h2>Register</h2>
+    <form action="{% url 'accounts:register_user' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Register">
+    </form>
+</div>
+</div>
+{% endblock mymain %}
